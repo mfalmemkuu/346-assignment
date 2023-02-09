@@ -157,7 +157,9 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {  
              while( objNetwork.getInBufferStatus().equals("full") ) { /* Alternatively, busy-wait until the network input buffer is available */
+            	 
             	 Thread.yield();
+            	
              }
                                              	
             transaction[i].setTransactionStatus("sent");   /* Set current transaction status */
@@ -217,6 +219,7 @@ public class Client extends Thread {
     	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
     
     	/* Implement here the code for the run method ... */
+    
     		if (this.clientOperation.equals("sending")) {
     			
     			
